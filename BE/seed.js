@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Product = require('./models/Product');
 const Category = require('./models/Category');
+const Brand = require('./models/Brand');
+const Service = require('./models/Service');
 
 dotenv.config();
 
@@ -26,12 +28,27 @@ const importData = async () => {
 
     await Product.deleteMany();
     await Category.deleteMany();
+    await Brand.deleteMany();
+    await Service.deleteMany();
     
     const createdCategories = {};
     for (const cat of categories) {
       const newCat = await Category.create({ name: cat.name, description: `Description for ${cat.name}` });
       createdCategories[cat.name] = newCat._id;
     }
+
+    const createdBrands = {};
+    for (const b of brands) {
+      const newBrand = await Brand.create({ name: b, description: `Quality pet products from ${b}` });
+      createdBrands[b] = newBrand._id;
+    }
+
+    // Seed some basic services
+    await Service.insertMany([
+      { name: 'Dog Grooming Basic', description: 'Bath, brush, and nail trim', price: 35, durationMinutes: 60 },
+      { name: 'Cat Grooming Basic', description: 'Bath and brush out', price: 40, durationMinutes: 45 },
+      { name: 'Pet Hotel (1 Night)', description: 'Overnight stay with food included', price: 25, durationMinutes: 1440 }
+    ]);
 
     const productsToInsert = [];
     
@@ -55,9 +72,10 @@ const importData = async () => {
           stock: Math.floor(Math.random() * 100) + 10,
           rating: Math.floor(Math.random() * 5) + 1,
           numReviews: Math.floor(Math.random() * 50),
-          brand: randomBrand,
+          brand: createdBrands[randomBrand],
           tags: randomTags,
-          petType: randomPet
+          petType: randomPet,
+          images: ['/images/sample.jpg']
         });
       }
     }

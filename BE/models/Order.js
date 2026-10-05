@@ -50,6 +50,13 @@ const orderSchema = new mongoose.Schema({
     required: true,
     default: 0.0,
   },
+  couponCode: {
+    type: String,
+  },
+  discountAmount: {
+    type: Number,
+    default: 0.0,
+  },
   status: {
     type: String,
     required: true,
@@ -72,6 +79,9 @@ const orderSchema = new mongoose.Schema({
   deliveredAt: {
     type: Date,
   },
+  trackingNumber: {
+    type: String,
+  }
 }, {
   timestamps: true
 });

@@ -6,10 +6,13 @@ import About from './pages/About';
 import Shop from './pages/Shop';
 import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
+import Services from './pages/Services';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Profile from './pages/auth/Profile';
 import Cart from './pages/cart/Cart';
+import Wishlist from './pages/Wishlist';
+import BookAppointment from './pages/BookAppointment';
 import Shipping from './pages/checkout/Shipping';
 import Payment from './pages/checkout/Payment';
 import PlaceOrder from './pages/checkout/PlaceOrder';
@@ -38,6 +41,7 @@ function App() {
           <Route path="product/:id" element={<ProductDetails />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="services" element={<Services />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="cart" element={<Cart />} />
@@ -45,6 +49,8 @@ function App() {
           {/* Protected Routes for Customer/Guest */}
           <Route path="" element={<PrivateRoute />}>
             <Route path="profile" element={<Profile />} />
+            <Route path="wishlist" element={<Wishlist />} />
+            <Route path="book-appointment" element={<BookAppointment />} />
             <Route path="shipping" element={<Shipping />} />
             <Route path="payment" element={<Payment />} />
             <Route path="placeorder" element={<PlaceOrder />} />

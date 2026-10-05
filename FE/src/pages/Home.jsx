@@ -48,8 +48,8 @@ const Home = () => {
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-2xl font-bold">Browse by category</h2>
           <div className="flex gap-2">
-            <button className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors"><i className="fas fa-chevron-left text-xs"></i></button>
-            <button className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors"><i className="fas fa-chevron-right text-xs"></i></button>
+            <button aria-label="Previous category" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"><i className="fas fa-chevron-left text-xs" aria-hidden="true"></i></button>
+            <button aria-label="Next category" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"><i className="fas fa-chevron-right text-xs" aria-hidden="true"></i></button>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -89,16 +89,18 @@ const Home = () => {
                   )}
                   <div className="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
                     <button 
+                      aria-label={`Add ${prod.name} to cart`}
                       onClick={() => addToCart(prod, 1)}
-                      className="bg-brand-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 shadow-md"
+                      className="bg-brand-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
                     >
-                      <i className="fas fa-cart-plus"></i>
+                      <i className="fas fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <Link 
                       to={`/product/${prod._id}`}
-                      className="bg-white text-brand-dark w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 shadow-md"
+                      aria-label={`View details for ${prod.name}`}
+                      className="bg-white text-brand-dark w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
                     >
-                      <i className="fas fa-eye"></i>
+                      <i className="fas fa-eye" aria-hidden="true"></i>
                     </Link>
                   </div>
                 </div>
@@ -156,16 +158,18 @@ const Home = () => {
                   )}
                   <div className="absolute bottom-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
                     <button 
+                      aria-label={`Add ${prod.name} to cart`}
                       onClick={() => addToCart(prod, 1)}
-                      className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-orange-600 shadow-md text-xs"
+                      className="bg-brand-orange text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-orange-600 shadow-md text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
                     >
-                      <i className="fas fa-cart-plus"></i>
+                      <i className="fas fa-cart-plus" aria-hidden="true"></i>
                     </button>
                     <Link 
                       to={`/product/${prod._id}`}
-                      className="bg-white text-brand-dark w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 shadow-md text-xs"
+                      aria-label={`View details for ${prod.name}`}
+                      className="bg-white text-brand-dark w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 shadow-md text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
                     >
-                      <i className="fas fa-eye"></i>
+                      <i className="fas fa-eye" aria-hidden="true"></i>
                     </Link>
                   </div>
                 </div>

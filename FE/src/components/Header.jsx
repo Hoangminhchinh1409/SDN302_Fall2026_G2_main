@@ -75,17 +75,17 @@ const Header = () => {
               placeholder="Search products..." 
               value={searchKeyword}
               onChange={(e) => setSearchKeyword(e.target.value)}
-              className="bg-brand-gray rounded-full py-2 px-5 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/20 w-48 lg:w-64" 
+              className="bg-brand-gray rounded-full py-2 px-5 pr-10 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange w-48 lg:w-64" 
             />
-            <button type="submit" className="absolute right-4 top-2.5 text-gray-400 hover:text-brand-orange">
-              <i className="fas fa-search"></i>
+            <button type="submit" aria-label="Search" className="absolute right-4 top-2.5 text-gray-400 hover:text-brand-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-full">
+              <i className="fas fa-search" aria-hidden="true"></i>
             </button>
           </form>
           
           {user ? (
             <div className="relative group hidden sm:block">
-              <button className="text-xl text-brand-dark hover:text-brand-orange transition-colors flex items-center gap-2">
-                <i className="far fa-user"></i>
+              <button aria-label="User menu" className="text-xl text-brand-dark hover:text-brand-orange transition-colors flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1">
+                <i className="far fa-user" aria-hidden="true"></i>
                 <span className="text-sm font-medium">{user.name}</span>
               </button>
               <div className="absolute right-0 top-full pt-2 w-48 hidden group-hover:block z-50">
@@ -102,12 +102,12 @@ const Header = () => {
               </div>
             </div>
           ) : (
-            <Link to="/login" className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block"><i className="far fa-user"></i></Link>
+            <Link to="/login" aria-label="Login" className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1"><i className="far fa-user" aria-hidden="true"></i></Link>
           )}
 
-          <button className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block"><i className="far fa-heart"></i></button>
-          <Link to="/cart" className="text-xl text-brand-dark hover:text-brand-orange transition-colors relative">
-            <i className="fas fa-shopping-cart"></i>
+          <button aria-label="Favorites" className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1"><i className="far fa-heart" aria-hidden="true"></i></button>
+          <Link to="/cart" aria-label="Shopping Cart" className="text-xl text-brand-dark hover:text-brand-orange transition-colors relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1">
+            <i className="fas fa-shopping-cart" aria-hidden="true"></i>
             {cartItems.length > 0 && (
               <span className="absolute -top-1.5 -right-2 bg-brand-orange text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
                 {cartItems.reduce((acc, item) => acc + item.qty, 0)}
@@ -116,10 +116,11 @@ const Header = () => {
           </Link>
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden text-2xl text-brand-dark"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className="lg:hidden text-2xl text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <i className={isMobileMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+            <i className={isMobileMenuOpen ? "fas fa-times" : "fas fa-bars"} aria-hidden="true"></i>
           </button>
         </div>
       </header>

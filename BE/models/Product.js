@@ -35,15 +35,23 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add an image URL'],
   },
+  images: [{
+    type: String
+  }],
   category: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
     required: [true, 'Please specify a category'],
   },
   brand: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Brand',
     required: false,
   },
+  variants: [{
+    name: String,
+    options: [String]
+  }],
   tags: [{
     type: String
   }],
@@ -55,6 +63,10 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Please add stock quantity'],
     default: 0,
+  },
+  lowStockThreshold: {
+    type: Number,
+    default: 5
   },
   reviews: [reviewSchema],
   rating: {

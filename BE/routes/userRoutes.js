@@ -8,7 +8,10 @@ const {
   updateUserProfile,
   getUsers,
   deleteUser,
-  updateUserRole
+  updateUserRole,
+  addToWishlist,
+  removeFromWishlist,
+  getWishlist
 } = require('../controllers/userController');
 const { protect, admin } = require('../middleware/authMiddleware');
 
@@ -22,5 +25,10 @@ router
 
 router.route('/:id').delete(protect, admin, deleteUser);
 router.route('/:id/role').put(protect, admin, updateUserRole);
+
+router.route('/wishlist')
+  .post(protect, addToWishlist)
+  .get(protect, getWishlist);
+router.route('/wishlist/:productId').delete(protect, removeFromWishlist);
 
 module.exports = router;

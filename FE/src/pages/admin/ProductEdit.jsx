@@ -91,54 +91,58 @@ const ProductEdit = () => {
 
         <form onSubmit={submitHandler} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
             <input
+              id="name"
               type="text"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Price</label>
+              <label htmlFor="price" className="block text-sm font-medium text-gray-700 mb-1">Price</label>
               <input
+                id="price"
                 type="number"
                 required
                 min="0"
                 step="0.01"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Stock</label>
+              <label htmlFor="stock" className="block text-sm font-medium text-gray-700 mb-1">Stock</label>
               <input
+                id="stock"
                 type="number"
                 required
                 min="0"
                 value={stock}
                 onChange={(e) => setStock(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
+            <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
             <div className="flex gap-2">
               <input
+                id="image"
                 type="text"
                 required
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
               />
               <input type="file" id="image-file" onChange={uploadFileHandler} className="hidden" />
-              <label htmlFor="image-file" className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md cursor-pointer hover:bg-gray-200 border border-gray-300 whitespace-nowrap">
+              <label htmlFor="image-file" className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md cursor-pointer hover:bg-gray-200 border border-gray-300 whitespace-nowrap focus-within:ring-2 focus-within:ring-brand-orange">
                 Upload File
               </label>
             </div>
@@ -146,35 +150,38 @@ const ProductEdit = () => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Brand</label>
+              <label htmlFor="brand" className="block text-sm font-medium text-gray-700 mb-1">Brand</label>
               <input
+                id="brand"
                 type="text"
                 required
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">Category</label>
               <input
+                id="category"
                 type="text"
                 required
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description</label>
             <textarea
+              id="description"
               required
               rows="4"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-brand-orange focus:border-brand-orange outline-none resize-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange resize-none"
             ></textarea>
           </div>
 

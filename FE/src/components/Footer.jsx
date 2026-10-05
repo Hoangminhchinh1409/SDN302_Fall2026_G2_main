@@ -19,10 +19,10 @@ const Footer = () => {
             Sed viverra eget fames sit varius. Pellentesque mattis libero viverra dictumst amet et justo convallis vitae.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors"><i className="fab fa-facebook-f text-sm"></i></a>
-            <a href="#" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors"><i className="fab fa-twitter text-sm"></i></a>
-            <a href="#" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors"><i className="fab fa-instagram text-sm"></i></a>
-            <a href="#" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors"><i className="fab fa-youtube text-sm"></i></a>
+            <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"><i className="fab fa-facebook-f text-sm" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"><i className="fab fa-twitter text-sm" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"><i className="fab fa-instagram text-sm" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube" className="w-8 h-8 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"><i className="fab fa-youtube text-sm" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -64,12 +64,12 @@ const Footer = () => {
         <p className="text-brand-text text-sm mb-4 md:mb-0">
           © Copyright Pet Shop 2026. FPT Uni, SDN302
         </p>
-        <div className="flex gap-4 opacity-50">
+        <div className="flex gap-4 opacity-50" aria-label="Payment Methods">
           {/* Payment Methods Placeholders */}
-          <i className="fab fa-cc-visa text-2xl"></i>
-          <i className="fab fa-cc-mastercard text-2xl"></i>
-          <i className="fab fa-cc-paypal text-2xl"></i>
-          <i className="fab fa-cc-amex text-2xl"></i>
+          <i className="fab fa-cc-visa text-2xl" aria-hidden="true"></i>
+          <i className="fab fa-cc-mastercard text-2xl" aria-hidden="true"></i>
+          <i className="fab fa-cc-paypal text-2xl" aria-hidden="true"></i>
+          <i className="fab fa-cc-amex text-2xl" aria-hidden="true"></i>
         </div>
       </div>
       
