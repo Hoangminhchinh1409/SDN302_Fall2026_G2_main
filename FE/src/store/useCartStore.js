@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import api from '../api/axios';
 
 const useCartStore = create(
   persist(
@@ -7,8 +8,29 @@ const useCartStore = create(
       cartItems: [],
       shippingAddress: {},
       paymentMethod: 'PayPal',
+      loading: false,
       
-      addToCart: (product, qty) => {
+      fetchCart: async () => {
+        try {
+          set({ loading: true });
+          const { data } = await api.get('/cart');
+          // Map backend structure to frontend structure
+          const formattedItems = data.items.map(item => ({
+            product: item.product._id,
+            name: item.product.name,
+            image: item.product.image,
+            price: item.product.price,
+            countInStock: item.product.stock,
+            qty: item.quantity,
+          }));
+          set({ cartItems: formattedItems, loading: false });
+        } catch (error) {
+          console.error(error);
+          set({ loading: false });
+        }
+      },
+
+      addToCart: async (product, qty) => {
         const item = {
           product: product._id,
           name: product.name,

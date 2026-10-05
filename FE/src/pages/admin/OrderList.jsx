@@ -37,7 +37,7 @@ const OrderList = () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200 text-sm text-gray-500 uppercase tracking-wider">
-                  <th className="p-4 font-medium">ID</th>
+                  <th className="p-4 font-medium">STT</th>
                   <th className="p-4 font-medium">USER</th>
                   <th className="p-4 font-medium">DATE</th>
                   <th className="p-4 font-medium">TOTAL</th>
@@ -47,9 +47,9 @@ const OrderList = () => {
                 </tr>
               </thead>
               <tbody className="text-sm">
-                {orders.map((order) => (
+                {orders.map((order, index) => (
                   <tr key={order._id} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="p-4 font-mono text-gray-500">{order._id.substring(0, 10)}...</td>
+                    <td className="p-4 text-gray-500">{index + 1}</td>
                     <td className="p-4 font-medium text-brand-dark">{order.user && order.user.name}</td>
                     <td className="p-4">{order.createdAt.substring(0, 10)}</td>
                     <td className="p-4">${order.totalPrice.toFixed(2)}</td>

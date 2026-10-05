@@ -6,7 +6,7 @@ import useAuthStore from '../store/useAuthStore';
 const BookAppointment = () => {
   const { services, fetchServices } = useServiceStore();
   const { createAppointment, loading, error } = useAppointmentStore();
-  const { userInfo } = useAuthStore();
+  const { user } = useAuthStore();
   const [serviceId, setServiceId] = useState('');
   const [date, setDate] = useState('');
   const [success, setSuccess] = useState(false);
@@ -17,12 +17,12 @@ const BookAppointment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!userInfo) return alert('Please login to book!');
-    const ok = await createAppointment({ serviceId, date }, userInfo.token);
+    if (!user) return alert('Please login to book!');
+    const ok = await createAppointment({ serviceId, date });
     if (ok) setSuccess(true);
   };
 
-  if (!userInfo) return <div className="text-center mt-20">Please login to book an appointment.</div>;
+  if (!user) return <div className="text-center mt-20">Please login to book an appointment.</div>;
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-lg">

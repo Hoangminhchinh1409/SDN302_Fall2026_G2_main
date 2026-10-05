@@ -13,6 +13,7 @@ import Profile from './pages/auth/Profile';
 import Cart from './pages/cart/Cart';
 import Wishlist from './pages/Wishlist';
 import BookAppointment from './pages/BookAppointment';
+import PetProfiles from './pages/PetProfiles';
 import Shipping from './pages/checkout/Shipping';
 import Payment from './pages/checkout/Payment';
 import PlaceOrder from './pages/checkout/PlaceOrder';
@@ -27,6 +28,10 @@ import ProductEdit from './pages/admin/ProductEdit';
 import ProductCreate from './pages/admin/ProductCreate';
 import OrderList from './pages/admin/OrderList';
 import UserList from './pages/admin/UserList';
+import AdminAppointments from './pages/admin/AdminAppointments';
+import AdminBrands from './pages/admin/AdminBrands';
+import AdminCoupons from './pages/admin/AdminCoupons';
+import AdminServices from './pages/admin/AdminServices';
 import StaffRoute from './components/routing/StaffRoute';
 import StaffDashboard from './pages/staff/StaffDashboard';
 
@@ -50,6 +55,7 @@ function App() {
           <Route path="" element={<PrivateRoute />}>
             <Route path="profile" element={<Profile />} />
             <Route path="wishlist" element={<Wishlist />} />
+            <Route path="pets" element={<PetProfiles />} />
             <Route path="book-appointment" element={<BookAppointment />} />
             <Route path="shipping" element={<Shipping />} />
             <Route path="payment" element={<Payment />} />
@@ -66,6 +72,10 @@ function App() {
           <Route path="product/:id/edit" element={<ProductEdit />} />
           <Route path="orders" element={<OrderList />} />
           <Route path="users" element={<UserList />} />
+          <Route path="appointments" element={<AdminAppointments />} />
+          <Route path="brands" element={<AdminBrands />} />
+          <Route path="coupons" element={<AdminCoupons />} />
+          <Route path="services" element={<AdminServices />} />
         </Route>
 
         {/* Staff Routes */}
@@ -73,6 +83,7 @@ function App() {
           <Route index element={<StaffDashboard />} />
           <Route path="orders" element={<OrderList />} />
           <Route path="inventory" element={<ProductList />} />
+          <Route path="appointments" element={<AdminAppointments />} />
         </Route>
       </Routes>
     </BrowserRouter>

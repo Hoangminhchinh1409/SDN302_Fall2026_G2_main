@@ -137,7 +137,7 @@ const ProductList = () => {
                     <td className="p-4 font-medium text-brand-dark">{product.name}</td>
                     <td className="p-4">${product.price.toFixed(2)}</td>
                     <td className="p-4">{product.category?.name || product.category}</td>
-                    <td className="p-4">{product.brand}</td>
+                    <td className="p-4">{product.brand?.name || product.brand}</td>
                     <td className="p-4 text-right space-x-2">
                       <Link 
                         to={`/admin/product/${product._id}/edit`}

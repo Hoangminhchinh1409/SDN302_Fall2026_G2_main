@@ -1,7 +1,14 @@
 const Appointment = require('../models/Appointment');
+require('../models/Service');
+require('../models/PetProfile');
+require('../models/User');
 
 const getMyAppointments = async (req, res) => {
-  const appointments = await Appointment.find({ user: req.user._id }).populate('service pet');
+  let filter = { user: req.user._id };
+  if (req.user.role === 'admin' || req.user.role === 'staff') {
+    filter = {}; // Admin and staff can see all
+  }
+  const appointments = await Appointment.find(filter).populate('service pet user');
   res.json(appointments);
 };
 

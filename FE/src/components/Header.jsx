@@ -91,6 +91,9 @@ const Header = () => {
               <div className="absolute right-0 top-full pt-2 w-48 hidden group-hover:block z-50">
                 <div className="bg-white border border-gray-200 rounded-md shadow-lg py-1">
                   <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
+                  <Link to="/wishlist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Wishlist</Link>
+                  <Link to="/pets" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Pets</Link>
+                  <Link to="/book-appointment" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Book Appointment</Link>
                   {user.role === 'admin' && (
                     <Link to="/admin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Admin Dashboard</Link>
                   )}
@@ -105,7 +108,7 @@ const Header = () => {
             <Link to="/login" aria-label="Login" className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1"><i className="far fa-user" aria-hidden="true"></i></Link>
           )}
 
-          <button aria-label="Favorites" className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1"><i className="far fa-heart" aria-hidden="true"></i></button>
+          <Link to="/wishlist" aria-label="Favorites" className="text-xl text-brand-dark hover:text-brand-orange transition-colors hidden sm:block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1"><i className="far fa-heart" aria-hidden="true"></i></Link>
           <Link to="/cart" aria-label="Shopping Cart" className="text-xl text-brand-dark hover:text-brand-orange transition-colors relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange rounded-md px-2 py-1">
             <i className="fas fa-shopping-cart" aria-hidden="true"></i>
             {cartItems.length > 0 && (

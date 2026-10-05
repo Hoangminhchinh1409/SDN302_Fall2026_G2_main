@@ -9,13 +9,19 @@ const Sidebar = () => {
   const adminLinks = [
     { name: 'Dashboard', path: '/admin', icon: 'fas fa-chart-line' },
     { name: 'Products', path: '/admin/products', icon: 'fas fa-box' },
+    { name: 'Brands', path: '/admin/brands', icon: 'fas fa-tags' },
     { name: 'Orders', path: '/admin/orders', icon: 'fas fa-shopping-bag' },
+    { name: 'Coupons', path: '/admin/coupons', icon: 'fas fa-ticket-alt' },
+    { name: 'Services', path: '/admin/services', icon: 'fas fa-spa' },
+    { name: 'Appointments', path: '/admin/appointments', icon: 'fas fa-calendar-check' },
     { name: 'Users', path: '/admin/users', icon: 'fas fa-users' },
   ];
 
   const staffLinks = [
     { name: 'Dashboard', path: '/staff', icon: 'fas fa-chart-line' },
     { name: 'Orders', path: '/staff/orders', icon: 'fas fa-shopping-bag' },
+    { name: 'Inventory', path: '/staff/inventory', icon: 'fas fa-boxes' },
+    { name: 'Appointments', path: '/staff/appointments', icon: 'fas fa-calendar-check' },
   ];
 
   const links = user?.role === 'admin' ? adminLinks : staffLinks;

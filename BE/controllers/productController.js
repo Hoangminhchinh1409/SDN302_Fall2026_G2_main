@@ -72,6 +72,7 @@ const getProducts = async (req, res) => {
     const count = await Product.countDocuments(filter);
     const products = await Product.find(filter)
       .populate('category', 'name')
+      .populate('brand', 'name')
       .sort(sortOpt)
       .limit(pageSize)
       .skip(pageSize * (page - 1));
@@ -88,7 +89,9 @@ const getProducts = async (req, res) => {
 // @access  Public
 const getProductById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate('category', 'name');
+    const product = await Product.findById(req.params.id)
+      .populate('category', 'name')
+      .populate('brand', 'name');
 
     if (product) {
       res.json(product);

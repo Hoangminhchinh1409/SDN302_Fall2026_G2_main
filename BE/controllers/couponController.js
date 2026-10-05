@@ -1,5 +1,10 @@
 const Coupon = require('../models/Coupon');
 
+const getCoupons = async (req, res) => {
+  const coupons = await Coupon.find({});
+  res.json(coupons);
+};
+
 const checkCoupon = async (req, res) => {
   const { code } = req.params;
   const coupon = await Coupon.findOne({ code, isActive: true });
@@ -16,4 +21,4 @@ const createCoupon = async (req, res) => {
   res.status(201).json(coupon);
 };
 
-module.exports = { checkCoupon, createCoupon };
+module.exports = { getCoupons, checkCoupon, createCoupon };

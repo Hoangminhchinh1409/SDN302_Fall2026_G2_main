@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
   const { wishlist, fetchWishlist, removeFromWishlist, loading } = useWishlistStore();
-  const { userInfo } = useAuthStore();
+  const { user } = useAuthStore();
 
   useEffect(() => {
-    if (userInfo?.token) {
-      fetchWishlist(userInfo.token);
+    if (user) {
+      fetchWishlist();
     }
-  }, [userInfo, fetchWishlist]);
+  }, [user, fetchWishlist]);
 
-  if (!userInfo) return <div className="text-center mt-20 text-xl font-bold">Please login to view your wishlist.</div>;
+  if (!user) return <div className="text-center mt-20 text-xl font-bold">Please login to view your wishlist.</div>;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -27,7 +27,7 @@ const Wishlist = () => {
           {wishlist.map((item) => (
             <div key={item._id} className="border rounded-lg p-4 shadow-sm relative">
               <button 
-                onClick={() => removeFromWishlist(item._id, userInfo.token)}
+                onClick={() => removeFromWishlist(item._id)}
                 className="absolute top-2 right-2 text-red-500 hover:text-red-700"
               >
                 X

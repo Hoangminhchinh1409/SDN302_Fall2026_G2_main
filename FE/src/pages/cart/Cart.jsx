@@ -3,8 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import useCartStore from '../../store/useCartStore';
 
 const Cart = () => {
-  const { cartItems, removeFromCart, addToCart } = useCartStore();
+  const { cartItems, removeFromCart, addToCart, fetchCart } = useCartStore();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    fetchCart();
+  }, [fetchCart]);
 
   const checkoutHandler = () => {
     navigate('/login?redirect=/shipping');

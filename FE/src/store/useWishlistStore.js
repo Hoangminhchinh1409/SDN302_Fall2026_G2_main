@@ -1,36 +1,33 @@
 import { create } from 'zustand';
-import axios from 'axios';
+import api from '../api/axios';
 
 const useWishlistStore = create((set) => ({
   wishlist: [],
   loading: false,
   error: null,
 
-  fetchWishlist: async (token) => {
+  fetchWishlist: async () => {
     set({ loading: true });
     try {
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('/api/users/wishlist', config);
+      const { data } = await api.get('/users/wishlist');
       set({ wishlist: data, loading: false, error: null });
     } catch (error) {
       set({ error: error.response?.data?.message || error.message, loading: false });
     }
   },
 
-  addToWishlist: async (productId, token) => {
+  addToWishlist: async (productId) => {
     try {
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.post('/api/users/wishlist', { productId }, config);
+      const { data } = await api.post('/users/wishlist', { productId });
       set({ wishlist: data });
     } catch (error) {
       console.error(error);
     }
   },
   
-  removeFromWishlist: async (productId, token) => {
+  removeFromWishlist: async (productId) => {
     try {
-      const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.delete(`/api/users/wishlist/${productId}`, config);
+      const { data } = await api.delete(`/users/wishlist/${productId}`);
       set({ wishlist: data });
     } catch (error) {
       console.error(error);
